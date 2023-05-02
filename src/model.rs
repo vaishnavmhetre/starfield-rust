@@ -152,7 +152,7 @@ impl Star {
         let sx = map_range(x / z, 0., 1., 0., width);
         let sy = map_range(y / z, 0., 1., 0., height);
 
-        let r = map_range(z, 0., width, 8., 0.);
+        let r = map_range(z, 0., width, 5., 0.);
 
         // Draw point
         draw.ellipse().x(sx).y(sy).radius(r).color(WHITE);
@@ -164,6 +164,8 @@ impl Star {
         draw.line()
             .start(vec2(px, py))
             .end(vec2(sx, sy))
+            .stroke_weight(r)
+            .caps_round()
             .color(WHITESMOKE);
     }
 }
